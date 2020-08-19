@@ -1,106 +1,38 @@
-#create 1D numpy array from a list
-array_1d = np.array([1, 2, 3, 4, 5])
+### Convert NumPy array to a Pandas Frame
+import pandas as pd
 
-print (array_1d)
+## create data frame
+sample_info = [['New York', 10, 'this'], ['Philadelphia', 4 , 'that'], ['Texas', 8, 'the other']]
 
-list_1 = [11, 22, 33, 44, 55]
-array_l1 = np.array(list_1)
+sample_df = pd.DataFrame(sample_info, columns = ['Place', 'Amount', 'Type'],index = ['A', 'B', 'C'])
+sample_df
 
-print(array_l1)
+#print column
+sample_df['Place']
 
-print ("NumPy version - " + np.version.version)
-print(array_1d.shape)
-type(array_1d)
-plain_range = range(4,12)
-list(plain_range)
-interval_range = range(1, 15, 2)
-list(interval_range)
-list(range(15, 1, -2))
+#position indexing - starts at 0
+sample_df.iloc[0]
 
+## iris dataset
+from sklearn.datasets import load_iris
+iris = load_iris()
+data = iris.data
+column_names = iris.feature_names
+column_names
+#length
+len(data)
 
-## add two d arrays, etc...
-#create 1D numpy array from a list
-array_1d = np.array([1, 2, 3, 4, 5])
+#slicing and indexing
+data[:2] #two rows
+data[2:5]
 
-print (array_1d)
+#convert to pandas DataFrame
+df = pd.DataFrame(data, columns = column_names)
+df.head()
+df.tail()
+df.describe()
+df.loc[140] #locate one specific
+df.loc[140:] #locate subsequent rows
 
-list_1 = [11, 22, 33, 44, 55]
-array_l1 = np.array(list_1)
-
-print(array_l1)
-
-print ("NumPy version - " + np.version.version)
-print(array_1d.shape)
-type(array_1d)
-plain_range = range(4,12)
-list(plain_range)
-interval_range = range(1, 15, 2)
-list(interval_range)
-list(range(15, 1, -2))
-
-
-## add two d arrays, etc...
-
-#create 1D numpy array from a list
-array_1d = np.array([1, 2, 3, 4, 5])
-
-print (array_1d)
-
-list_1 = [11, 22, 33, 44, 55]
-array_l1 = np.array(list_1)
-
-print(array_l1)
-
-print ("NumPy version - " + np.version.version)
-print(array_1d.shape)
-type(array_1d)
-plain_range = range(4,12)
-list(plain_range)
-interval_range = range(1, 15, 2)
-list(interval_range)
-list(range(15, 1, -2))
-
-
-## add two d arrays, etc...
-#create 1D numpy array from a list
-array_1d = np.array([1, 2, 3, 4, 5])
-
-print (array_1d)
-
-list_1 = [11, 22, 33, 44, 55]
-array_l1 = np.array(list_1)
-
-print(array_l1)
-
-print ("NumPy version - " + np.version.version)
-print(array_1d.shape)
-type(array_1d)
-plain_range = range(4,12)
-list(plain_range)
-interval_range = range(1, 15, 2)
-list(interval_range)
-list(range(15, 1, -2))
-
-
-## add two d arrays, etc...
-#create 1D numpy array from a list
-array_1d = np.array([1, 2, 3, 4, 5])
-
-print (array_1d)
-
-list_1 = [11, 22, 33, 44, 55]
-array_l1 = np.array(list_1)
-
-print(array_l1)
-
-print ("NumPy version - " + np.version.version)
-print(array_1d.shape)
-type(array_1d)
-plain_range = range(4,12)
-list(plain_range)
-interval_range = range(1, 15, 2)
-list(interval_range)
-list(range(15, 1, -2))
-
-
-## add two d arrays, etc...
+#summarize mean values
+df.groupby(['sepal width (cm)']).mean()

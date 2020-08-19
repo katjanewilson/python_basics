@@ -11,8 +11,16 @@ use_python("/usr/bin/python")
 ```
 
 Use regular python syntax within the Markdown
+```{r}
+py_install("fhirclient", pip = TRUE)
+#best way to install pandas may be to use this py_install function when in reticulate mode
+py_install("pandas", pip = TRUE)
+py_install("sklearn", pip = TRUE)
+```
+Use regular python syntax within the Markdown
 ```{python}
 import numpy as np
+$ pip install pandas
 my_python_array = np.array([2,4,6])
 for item in my_python_array:
   print(item)
