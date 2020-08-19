@@ -1,0 +1,66 @@
+---
+title: "python_code"
+output: html_document
+---
+
+Call the reticulate package
+
+```{r setup, include=FALSE}
+library(reticulate)
+use_python("/usr/bin/python")
+```
+
+Use regular python syntax within the Markdown
+```{python}
+import numpy as np
+my_python_array = np.array([2,4,6])
+for item in my_python_array:
+  print(item)
+```
+
+In an R chunk, you can change the python object to an R object
+```{r}
+my_r_array <- py$my_python_array
+class(my_r_array)
+```
+
+Then perform operations on that R object
+```{r}
+my_r_vector <- as.vector(py$my_python_array)
+class(my_r_vector)
+my_r_vector <- my_r_vector *2
+```
+
+
+```{python}
+my_python_array2 = r.my_r_vector
+print(my_python_array2)
+```
+
+
+Numpy Basics
+
+```{python}
+#create 1D numpy array from a list
+array_1d = np.array([1, 2, 3, 4, 5])
+
+print (array_1d)
+
+list_1 = [11, 22, 33, 44, 55]
+array_l1 = np.array(list_1)
+
+print(array_l1)
+
+print ("NumPy version - " + np.version.version)
+print(array_1d.shape)
+type(array_1d)
+plain_range = range(4,12)
+list(plain_range)
+interval_range = range(1, 15, 2)
+list(interval_range)
+list(range(15, 1, -2))
+
+
+## add two d arrays, etc...
+```
+
