@@ -32,6 +32,23 @@ list(range(15, 1, -2))
 ## Pandas Basics
 ```
 
-list(range(15, 1, -2))
+#convert to pandas DataFrame
+df = pd.DataFrame(data, columns = column_names)
+df.head()
+df.tail()
+df.describe()
+df.loc[140] #locate one specific
+df.loc[140:] #locate subsequent rows
+
+#summarize mean values
+df.groupby(['sepal width (cm)']).mean()
+
+```
+
+
+## Connecting R and Python
+
+```
+library(reticulate)
 
 ```
