@@ -16,6 +16,7 @@ py_install("fhirclient", pip = TRUE)
 #best way to install pandas may be to use this py_install function when in reticulate mode
 py_install("pandas", pip = TRUE)
 py_install("sklearn", pip = TRUE)
+py_install("matplotlib", pip = TRUE)
 ```
 Use regular python syntax within the Markdown
 ```{python}

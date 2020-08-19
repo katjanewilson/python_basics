@@ -36,3 +36,53 @@ df.loc[140:] #locate subsequent rows
 
 #summarize mean values
 df.groupby(['sepal width (cm)']).mean()
+
+#duplicates
+df.shape
+df.drop_duplicates
+
+#rename columsn
+df2 = df.rename({'petal width (cm)': 'Width of Petals'})
+print(df2)
+
+#check null values
+df2.isnull()
+df2.isnull().sum()
+
+#drop missing values
+df2.dropna(axis =1)
+
+#imputation
+
+#seelct a paticular columns
+Width = df2['Width of Petals']
+Width.head()
+Width_mean = Width.mean()
+Width_mean
+#fill in the missing values with the mean
+df2.fillna(Width_mean, inplace = True)
+
+#describe all values
+df2.describe()
+
+#count row totals
+df2['Width of Petals'].value_counts().head(30)
+
+#correlation
+df2.corr()
+
+#conditional selection
+df2[df2['Width of Petals'] >= 2.3]
+
+#complex conditional seection
+df2[(df2['sepal length (cm)'] == 6.3) | (df2['sepal length (cm)'] == 6.4) ]
+
+#create a sequence of conditions
+
+# df2[
+#   ((df2['sepal length (cm)'] > 7 )
+#   & (df2['Width of Petals'] <3))
+# ]
+
+##functions
+
